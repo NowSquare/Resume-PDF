@@ -1,0 +1,39 @@
+.navigation {
+  .v-btn:not(.v-btn--active) {
+    .v-btn__content {
+    }
+  }
+  .v-btn::before,
+  .v-btn:hover::before,
+  .v-btn:active::before,
+  .v-btn:focus::before,
+  .v-btn:visited::before {
+    opacity: 0 !important;
+    background: transparent !important;
+  }
+  .v-btn--active {
+    &::before {
+      background: transparent !important;
+    }
+    .v-btn__content::after {
+      content: "";
+      position: absolute;
+      background: $navigation-active-color;
+      width: 3rem;
+      height: .2rem;
+      left: calc(50% - 1.5rem);
+      top: 1.5rem;
+      border-radius: 3rem;
+    }
+  }
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 12px !important;
+
+  li {
+    padding-bottom: 12px !important;
+  }
+}

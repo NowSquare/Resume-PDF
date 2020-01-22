@@ -1,0 +1,9 @@
+.round-20 {
+  border-radius: 20px;
+}
+
+.toolbar-content-no-padding {
+  .v-toolbar__content {
+    padding: 0 !important;
+  }
+}
