@@ -37,8 +37,8 @@ class ResumeController extends \App\Http\Controllers\Controller
     $size = request('size', 'letter');
     if (! in_array($size, $sizes)) $size = 'letter';
 
-    $user = \App\User::whereId(2)->first();
-    //$user = auth()->user();
+    //$user = \App\User::whereId(2)->first();
+    $user = auth()->user();
     $resume = $user->getResume();
     $footer = view('pdf.resume-footer', compact('user', 'resume'))->render();
 

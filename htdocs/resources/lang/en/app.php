@@ -23,7 +23,7 @@ return [
   "get_started" => "Get started",
   "navigate" => "Navigate",
   "legal" => "Legal",
-  "follow_us" => "Follow us",
+  "follow_us" => "Connect",
   "footer_copyright" => "Copyright © :app_name :year",
 
   /*
@@ -33,7 +33,7 @@ return [
    */
   
   "home" => "Home",
-  "home_page_title" => "Create a resume / CV pdf for free!",
+  "home_page_title" => "Create a resume / CV PDF for free!",
 
   /**
    * For classes see:
@@ -46,7 +46,7 @@ return [
    */
 
   // Head
-  "home_head" => "Create a resume PDF.",
+  "home_head" => "Create your resume.",
   "home_head_classes" => "display-4 font-weight-bold my-10",
   "home_head_style" => "line-height: 5.5rem; max-width: 500px",
 
@@ -57,7 +57,7 @@ return [
 
   // Image
   "home_head_img" => url('img/hero-visual.png'),
-  "home_head_img_max_width" => "220",
+  "home_head_img_max_width" => "340",
   "home_head_img_max_height" => "null",
   "home_head_img_classes" => "",
 

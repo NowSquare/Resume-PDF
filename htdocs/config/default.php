@@ -65,7 +65,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'max_items' => env('MAX_ITEMS', 20),
+    'max_items' => env('MAX_ITEMS', 25),
     'max_items_premium' => env('MAX_ITEMS_PREMIUM', 50),
    
    /*

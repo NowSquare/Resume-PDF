@@ -43,7 +43,7 @@ class UsersTableSeeder extends Seeder
 
         $user = new \App\User;
         $user->role = 2;
-        $user->name = 'Marge McLaughlin';
+        $user->name = 'Hannah McLaughlin';
         $user->email = 'user@example.com';
         $user->password = bcrypt('welcome123');
         $user->job_title = 'Full Stack Developer';
@@ -53,7 +53,7 @@ class UsersTableSeeder extends Seeder
         $user->contact_phone = $faker->tollFreePhoneNumber;
         $user->website = 'https://example.com';
         $user->languages = 'English (natively), German, French';
-        $user->linkedin = 'https://www.linkedin.com/company/nowsquare/';
+        $user->linkedin = 'https://www.linkedin.com/company/';
         $user->address1 = $faker->streetAddress;
         $user->address2 = $faker->postcode . ' ' . $faker->stateAbbr;
         $user->address3 = $faker->country;

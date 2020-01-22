@@ -344,7 +344,7 @@
         })
 
       // Validate current password
-      this.$refs['form1.current_password'].validate()
+      // this.$refs['form1.current_password'].validate()
     },
     created () {
       this.showDeleteAvatar = (this.$_.startsWith(this.form1.avatar_media_url, 'data:image/png;base64')) ? false : true
