@@ -446,12 +446,14 @@ class AuthController extends \App\Http\Controllers\Controller
         'name' => $user->name ?? '',
         'job_title' => $user->job_title ?? '',
         'bio' => $user->bio ?? '',
-        'tags' => $user->tags()->get()->map(function ($record, $key) {
+        'tags' => $user->tags()->pluck('tags.id'),
+        /*
+        'tags2' => $user->tags()->get()->map(function ($record, $key) {
           return [
             'pk' => $record->id,
             'val' => $record->name
           ];
-        }),
+        }),*/
         'date_of_birth' => $user->date_of_birth ?? '',
         'contact_phone' => $user->contact_phone ?? '',
         'contact_email' => $user->contact_email ?? '',

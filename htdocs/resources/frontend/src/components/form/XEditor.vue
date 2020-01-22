@@ -45,7 +45,7 @@ export default {
             items: [
               'bold',
               'italic',
-              'link',
+              /*'link',*/
               '|',
               'undo',
               'redo'

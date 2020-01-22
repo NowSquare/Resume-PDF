@@ -57,21 +57,26 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
     protected $casts = [
         'email_verified_at' => 'datetime',
         'expires_at' => 'datetime',
+        'date_of_birth' => 'date',
     ];
-
+    
     /**
      * Get plan limiations.
      *
      * @return string
      */
     public function getPlanLimitationsAttribute() {
-      if ($this->plan_id !== null) {
-        return $this->plan->limitations;
+      if ($this->premium == 1) {
+        return [
+          'tags' => config('default.max_items_premium'),
+          'experience' => config('default.max_items_premium'),
+          'projects' => config('default.max_items_premium'),
+        ];
       } else {
         return [
-          'tags' => 50,
-          'experience' => 50,
-          'projects' => 50,
+          'tags' => config('default.max_items'),
+          'experience' => config('default.max_items'),
+          'projects' => config('default.max_items'),
         ];
       }
     }
@@ -286,7 +291,8 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
         ['visible' => true, 'value' => 'email', 'text' => trans('app.email'), 'align' => 'left', 'sortable' => true],
         ['visible' => true, 'value' => 'logins', 'type' => 'number', 'text' => trans('app.logins'), 'align' => 'right', 'sortable' => true],
         ['visible' => true, 'value' => 'last_login', 'type' => 'date_time', 'format' => 'ago', 'text' => trans('app.last_login'), 'align' => 'left', 'sortable' => true, 'default_order' => true],
-        ['visible' => true, 'value' => 'active', 'text' => trans('app.active'), 'align' => 'center', 'sortable' => true, 'type' => 'boolean']
+        ['visible' => true, 'value' => 'active', 'text' => trans('app.active'), 'align' => 'center', 'sortable' => true, 'type' => 'boolean'],
+        ['visible' => true, 'value' => 'premium', 'text' => trans('app.premium'), 'align' => 'center', 'sortable' => true, 'type' => 'boolean']
       ];
       $user = $admin;
 
@@ -310,8 +316,9 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
               'items' => [
                 ['type' => 'text', 'column' => 'name', 'text' => trans('app.name'), 'validate' => 'required|max:32', 'required' => true],
                 ['type' => 'email', 'column' => 'email', 'text' => trans('app.email_address'), 'validate' => 'required|email|max:64', 'required' => true],
-                ['type' => 'image', 'image' => ['thumb_max_width' => '140px', 'thumb_max_height' => '140px'], 'column' => 'avatar', 'text' => trans('app.avatar'), 'validate' => 'nullable', 'icon' => 'attach_file'],
-                ['type' => 'boolean', 'default' => true, 'column' => 'active', 'text' => trans('app.active'), 'validate' => 'nullable']
+                ['type' => 'image', 'class' => 'round', 'image' => ['thumb_max_width' => '140px', 'thumb_max_height' => '140px'], 'column' => 'avatar', 'text' => trans('app.avatar'), 'validate' => 'nullable', 'icon' => 'mdi-paperclip'],
+                ['type' => 'boolean', 'default' => true, 'column' => 'active', 'text' => trans('app.active'), 'validate' => 'nullable'],
+                ['type' => 'boolean', 'default' => false, 'column' => 'premium', 'text' => trans('app.premium'), 'validate' => 'nullable', 'hint' => trans('app.premium_hint', ['max_items_premium' => config('default.max_items_premium'), 'max_items' => config('default.max_items')])]
               ]
             ]
           ]
@@ -539,8 +546,8 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
      */
     public function getResume() {
       $experience = $this->resumeExpierence->map(function ($record, $key) {
-        $date = $record->started_at->isoFormat('MMM YYYY');
-        $date .= ($record->ended_at === null) ? ' - ' . trans('app.present') : ' - ' . $record->ended_at->isoFormat('MMM YYYY');
+        $date = $record->started_at->settings(['locale' => str_replace('-', '_', $this->locale)])->isoFormat('MMM YYYY');
+        $date .= ($record->ended_at === null) ? ' - ' . trans('app.present') : ' - ' . $record->ended_at->settings(['locale' => str_replace('-', '_', $this->locale)])->isoFormat('MMM YYYY');
 
         return [
           'type' => $record->type,
@@ -552,8 +559,8 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
       });
 
       $projects = $this->resumeProjects->map(function ($record, $key) {
-        $date = $record->started_at->isoFormat('MMM YYYY');
-        if ($record->ended_at !== null) $date .= ' - ' . $record->ended_at->isoFormat('MMM YYYY');
+        $date = $record->started_at->settings(['locale' => str_replace('-', '_', $this->locale)])->isoFormat('MMM YYYY');
+        if ($record->ended_at !== null) $date .= ' - ' . $record->ended_at->settings(['locale' => str_replace('-', '_', $this->locale)])->isoFormat('MMM YYYY');
 
         return [
           'title' => $record->title,

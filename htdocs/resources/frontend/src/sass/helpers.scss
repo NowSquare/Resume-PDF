@@ -2,6 +2,10 @@
   border-radius: 20px;
 }
 
+.round {
+  border-radius: 50%;
+}
+
 .toolbar-content-no-padding {
   .v-toolbar__content {
     padding: 0 !important;

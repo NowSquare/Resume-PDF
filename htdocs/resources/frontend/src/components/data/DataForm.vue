@@ -238,7 +238,7 @@
 
                       <v-hover>
                         <template v-slot:default="{ hover }">
-                          <v-img :src="formModel[form_item.column + '_media_url']" class="mt-5 mb-3 elevation-3" :class="form_item.class" contain :style="{'width': form_item.image.thumb_width, 'height': form_item.image.thumb_height, 'max-width': form_item.image.thumb_max_width, 'max-height': form_item.image.thumb_max_height}" v-if="formModel[form_item.column + '_media_url']">
+                          <v-img :src="formModel[form_item.column + '_media_url']" class="mt-1 mb-3 elevation-3" :class="form_item.class" contain :style="{'width': form_item.image.thumb_width, 'height': form_item.image.thumb_height, 'max-width': form_item.image.thumb_max_width, 'max-height': form_item.image.thumb_max_height}" v-if="formModel[form_item.column + '_media_url']">
                             <v-fade-transition>
                               <v-overlay
                                 v-if="hover"
@@ -646,5 +646,3 @@
     }
   }
 </script>
-<style scoped>
-</style>

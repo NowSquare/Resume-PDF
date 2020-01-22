@@ -106,7 +106,7 @@
                               />
                             </v-col>
                             <v-col cols="4" class="py-0">
-                              <v-btn class="no-caps" style="height: 55px" large :to="{ name: 'user.tags' }">{{ $t('manage_tags') }}</v-btn>
+                              <v-btn class="no-caps" color="primary" style="height: 55px" large :to="{ name: 'user.tags' }">{{ $t('edit_tags') }}</v-btn>
                             </v-col>
                           </v-row>
 

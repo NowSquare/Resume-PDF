@@ -25,9 +25,9 @@
                     </v-btn>
                   </template>
                   <v-list>
-                    <v-subheader class="text-uppercase">{{ $t('format') }}</v-subheader>
-                    <v-list-item @click="console.log(0)"><v-list-item-title>A4</v-list-item-title></v-list-item>
-                    <v-list-item @click="console.log(0)"><v-list-item-title>US Letter</v-list-item-title></v-list-item>
+                    <v-subheader class="text-uppercase caption">{{ $t('format') }}</v-subheader>
+                    <v-list-item @click="downloadResume('A4')"><v-list-item-title>A4</v-list-item-title></v-list-item>
+                    <v-list-item @click="downloadResume('letter')"><v-list-item-title>US Letter</v-list-item-title></v-list-item>
                   </v-list>
                 </v-menu>
               </v-col>
@@ -54,7 +54,9 @@
                           <div class="title" v-html="$auth.user().name" />
                           <div v-html="$auth.user().job_title" class="mb-1 body-1 font-weight-bold" />
                           <div v-html="$auth.user().bio" class="body-2" />
-                          <v-chip v-for="(tag, index) in resume.tags" :key="index" label class="mr-2 mt-2" small v-html="tag" />
+                          <div v-if="resume !== null">
+                            <v-chip v-for="(tag, index) in resume.tags" :key="index" label class="mr-2 mt-2" small v-html="tag" />
+                          </div>                          
                         </div>
                       </v-col>
                     </v-row>
@@ -73,7 +75,7 @@
 
             <v-divider/>
             <v-card-actions class="pa-4">
-              <v-btn color="primary" x-large rounded block :to="{name: 'user.experience'}"><v-icon class="mr-2">mdi-history</v-icon> {{ $t('experience') }}</v-btn>
+              <v-btn color="primary" x-large outlined rounded block :to="{name: 'user.experience'}"><v-icon class="mr-2">mdi-history</v-icon> {{ $t('experience') }}</v-btn>
             </v-card-actions>
             <v-divider/>
 
@@ -83,7 +85,7 @@
                   <v-hover>
                     <template v-slot:default="{ hover }">
                       <div>
-                        <v-card :elevation="hover ? 12 : 2">
+                        <v-card :elevation="hover ? 2 : 0">
                           <table class="pa-1">
                             <tr>
                               <td width="220" valign="top">
@@ -128,7 +130,7 @@
 
             <v-divider/>
             <v-card-actions class="pa-4">
-              <v-btn color="primary" x-large rounded block :to="{name: 'user.projects'}"><v-icon class="mr-2">mdi-briefcase-outline</v-icon> {{ $t('projects') }}</v-btn>
+              <v-btn color="primary" x-large outlined rounded block :to="{name: 'user.projects'}"><v-icon class="mr-2">mdi-briefcase-outline</v-icon> {{ $t('projects') }}</v-btn>
             </v-card-actions>
             <v-divider/>
 
@@ -138,7 +140,7 @@
                   <v-hover>
                     <template v-slot:default="{ hover }">
                       <div>
-                        <v-card :elevation="hover ? 12 : 2">
+                        <v-card :elevation="hover ? 2 : 0">
                           <table class="pa-3">
                             <tr>
                               <td valign="top">
@@ -148,7 +150,9 @@
                                 <div class="subtitle-1" v-if="item.title" v-html="item.title"/>
                                 <div v-html="item.date" class="caption"/>
                                 <div class="mt-1 body-2" v-if="item.description" v-html="item.description"/>
-                                <v-chip v-for="(tag, index) in item.tags" :key="index" label class="mr-2 mb-2" small v-html="tag" />
+                                <div v-if="item.tags">
+                                  <v-chip v-for="(tag, index) in item.tags" :key="index" label class="mr-2 mb-2" small v-html="tag" />
+                                </div>
                               </td>
                             </tr>
                           </table>
@@ -182,6 +186,8 @@
   </div>
 </template>
 <script>
+import { strToSlug } from '@/utils/helpers';
+
 export default {
   data: () => ({
     locale: 'en',
@@ -203,19 +209,9 @@ export default {
     this.getResume()
   },
   methods: {
+    strToSlug,
     formatNumber (number) {
       return new Intl.NumberFormat(this.locale.replace('_', '-')).format(number)
-    },
-    resumeAction (action, uuid = null, uuid2 = null, link = null) {
-      if (action == 'moveUp') {
-        this.changeOrder(uuid, uuid2)
-        return
-      }
-
-      if (action == 'moveDown') {
-        this.changeOrder(uuid, uuid2)
-        return
-      }
     },
     getResume () {
       this.axios
@@ -226,25 +222,40 @@ export default {
         })
       
     },
-    changeOrder (uuid1, uuid2) {
-      this.resumeLoading = true
-      this.axios.post('/user/resume-projects/change-order', {
+    downloadResume (size) {
+      this.$store.dispatch('setLoading', true)
+
+      this.axios({
+        url: '/user/download-resume',
+        method: 'GET',
+        responseType: 'blob',
+        params: {
           locale: this.$i18n.locale,
-          uuid1: uuid1,
-          uuid2: uuid2
-        })
-      .then(res => {
-        if (res.data.status === 'success') {
-          this.getResume()
-          this.$root.$snackbar(res.data.msg, {timeout: 2000})
+          size: size
         }
+      })
+      .then(res => {
+        const url = window.URL.createObjectURL(new Blob([res.data]))
+        const link = document.createElement('a')
+
+        // Name for PDF
+        let name = strToSlug (this.$auth.user().name)
+        if (this.$auth.user().job_title !== null) name += '-' + strToSlug (this.$auth.user().job_title)
+        let today = new Date()
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+        name += '-' + date
+
+        link.href = url
+        link.setAttribute('download', name + '.pdf')
+        document.body.appendChild(link)
+        link.click()
       })
       .catch(err => {
         if (err.response.data.status === 'error') {
-          this.$root.$snackbar(err.response.data.msg, {timeout: 8000})
+          this.$root.$snackbar(err.response.data.msg)
         }
-        this.resumeLoading = false
       })
+      .finally(() => this.$store.dispatch('setLoading', false))
     }
   }
 }

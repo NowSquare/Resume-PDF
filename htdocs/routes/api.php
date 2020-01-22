@@ -36,10 +36,11 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::group(['prefix' => 'admin',  'middleware' => 'role:1'], function () {
         Route::get('stats', '\Platform\Controllers\App\AdminController@getStats');
     });
-
+    
     // User related routes
     Route::group(['prefix' => 'user',  'middleware' => 'role:2'], function () {
         // Resume
+        Route::get('download-resume', '\Platform\Controllers\Resume\ResumeController@getDownloadResumePdf');
         Route::get('resume', '\Platform\Controllers\Resume\ResumeController@getUserResume');
         Route::get('tags', '\Platform\Controllers\Resume\ResumeController@getTags');
     });

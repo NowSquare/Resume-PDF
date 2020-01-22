@@ -25,7 +25,10 @@
   <table width="100%" cellpadding="0" cellspacing="0">
     <tr>
       <td>
-      {{ date('Y-m-d') }} | <a href="https://nowsquare.com" class="link">https://nowsquare.com</a>
+        {{ \Carbon\Carbon::now()->settings(['locale' => str_replace('-', '_', $user->locale)])->isoFormat('LL') }}
+<?php if ($user->premium != 1) { ?>
+         - <a href="{{ config('default.app_url') }}" class="link">{{ config('default.app_url') }}</a>
+<?php } ?>
       </td>
       <td align="right">
         {!! trans('app.page_of_', ['page' => '<span class="page"></span>', 'topage' => '<span class="topage"></span>']) !!}

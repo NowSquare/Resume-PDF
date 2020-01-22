@@ -380,7 +380,6 @@ export default {
     this.$root.$snackbar = this.$refs.snackbar.show
     this.$root.$confirm = this.$refs.confirm.open
 
-
     /* Get available translations */
     getAvailableLanguages().then(result => this.languages = result)
 

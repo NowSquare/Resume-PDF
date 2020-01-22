@@ -22,6 +22,46 @@ class ResumeController extends \App\Http\Controllers\Controller
   */
 
   /**
+   * Get resume pdf.
+   *
+   * @return \Symfony\Component\HttpFoundation\Response 
+   */
+  public function getDownloadResumePdf(Request $request) {
+    //\Log::debug($request->headers);
+
+    $locale = request('locale', config('default.language'));
+    $locale = substr($locale, 0, 2);
+    app()->setLocale($locale);
+
+    $sizes = ['letter', 'A4'];
+    $size = request('size', 'letter');
+    if (! in_array($size, $sizes)) $size = 'letter';
+
+    $user = \App\User::whereId(2)->first();
+    //$user = auth()->user();
+    $resume = $user->getResume();
+    $footer = view('pdf.resume-footer', compact('user', 'resume'))->render();
+
+    //$file = storage_path('app/resume-' . $user->id . '.pdf');
+    //if (\File::exists($file)) \File::delete($file);
+
+    $pdf = \PDF::loadView('pdf.resume', compact('user', 'resume'))
+      ->setOrientation('portrait')
+      ->setOption('page-size', $size)
+      ->setOption('margin-top', 18)
+      ->setOption('margin-right', 18)
+      ->setOption('margin-left', 18)
+      ->setOption('margin-bottom', 18)
+      ->setOption('footer-html', $footer)
+      ->setOption('footer-spacing', 5)
+      ->stream();
+
+    return $pdf;
+    //return response()->download($file, null, [], null);
+    //return response()->json(['status' => 'success'], 200);
+  }
+
+  /**
    * Get user resume.
    *
    * @return \Symfony\Component\HttpFoundation\Response 

@@ -46,12 +46,12 @@ return [
    */
 
   // Head
-  "home_head" => "Create a resume / CV PDF.",
+  "home_head" => "Create a resume PDF.",
   "home_head_classes" => "display-4 font-weight-bold my-10",
   "home_head_style" => "line-height: 5.5rem; max-width: 500px",
 
   // Subtitle
-  "home_head_sub" => "This is a FREE tool to create a good looking resume PDF for recruiters and (open) applications. Download and use forever.",
+  "home_head_sub" => "This is a FREE tool to create a good looking resume PDF for recruiters and (open) applications. Download your resume and use forever.",
   "home_head_sub_classes" => "headline font-weight-light my-10",
   "home_head_sub_style" => "line-height: 2.3rem; max-width: 80%",
 
@@ -75,17 +75,17 @@ return [
   "home_horizontal_blocks_content_classes" => "text-justify mt-3",
   "home_horizontal_blocks" => [
     [
-      "img" => "https://picsum.photos/id/0/510/300",
+      "img" => "https://picsum.photos/id/119/510/300",
       "title" => "Title one",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1031/510/300",
+      "img" => "https://picsum.photos/id/160/510/300",
       "title" => "Title two",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1048/510/300",
+      "img" => "https://picsum.photos/id/3/510/300",
       "title" => "Title three",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
@@ -98,17 +98,17 @@ return [
   "home_vertical_blocks_content_classes" => "headline",
   "home_vertical_blocks" => [
     [
-      "img" => "https://picsum.photos/id/0/510/300",
+      "img" => "https://picsum.photos/id/119/510/300",
       "title" => "This is title one",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1031/510/300",
+      "img" => "https://picsum.photos/id/160/510/300",
       "title" => "This is title two",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1048/510/300",
+      "img" => "https://picsum.photos/id/3/510/300",
       "title" => "This is title three",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
@@ -134,7 +134,7 @@ return [
   "about_head_sub_style" => "",
 
   // Image
-  "about_head_img" => "https://picsum.photos/id/0/510/300",
+  "about_head_img" => "https://picsum.photos/id/3/510/300",
   "about_head_img_aspect_ratio" => "1.7",
   "about_head_img_max_height" => "360",
   "about_head_img_classes" => "elevation-3",
@@ -155,7 +155,7 @@ return [
   "about_horizontal_blocks_content_classes" => "text-justify mt-3",
   "about_horizontal_blocks" => [
     [
-      "img" => "https://picsum.photos/id/0/510/300",
+      "img" => "https://picsum.photos/id/366/510/300",
       "title" => "Title one",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
@@ -165,7 +165,7 @@ return [
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1048/510/300",
+      "img" => "https://picsum.photos/id/378/510/300",
       "title" => "Title three",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
@@ -178,17 +178,17 @@ return [
   "about_vertical_blocks_content_classes" => "headline",
   "about_vertical_blocks" => [
     [
-      "img" => "https://picsum.photos/id/0/510/300",
+      "img" => "https://picsum.photos/id/370/510/300",
       "title" => "This is title one",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1031/510/300",
+      "img" => "https://picsum.photos/id/4/510/300",
       "title" => "This is title two",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
     [
-      "img" => "https://picsum.photos/id/1048/510/300",
+      "img" => "https://picsum.photos/id/42/510/300",
       "title" => "This is title three",
       "content" => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna risus, suscipit nec dolor id, sodales euismod nulla."
     ],
@@ -457,6 +457,8 @@ return [
   "general" => "General",
   "account" => "Account",
   "actions" => "Actions",
+  "premium" => "Premium",
+  "premium_hint" => "Premium users have no link in the PDF footer and can create :max_items_premium instead of :max_items items (tags, experience & projects).",
   "edit" => "Edit",
   "delete" => "Delete",
   "log_in_to_account" => "Log in to account",
@@ -504,7 +506,7 @@ return [
   "present" => "Present",
   "tag" => "Tag",
   "tags" => "Tags",
-  "manage_tags" => "Manage tags",
+  "edit_tags" => "Edit tags",
   "tags_empty_list" => "You can add tags to your profile and to projects. Tags can be skills or features you want to highlight.",
   "edit_tag" => "Edit tag",
   "create_tag" => "Create tag",
