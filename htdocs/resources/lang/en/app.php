@@ -124,19 +124,19 @@ return [
   "about_page_title" => "How does this work",
 
   // Head
-  "about_head" => "Download a PDF with your resume.",
+  "about_head" => "Download your resume.",
   "about_head_classes" => "display-3",
   "about_head_style" => "max-width: 380px",
 
   // Subtitle
-  "about_head_sub" => "Quick, easy and good looking to get the job!",
+  "about_head_sub" => "Create quick and easy a resume to get the job!",
   "about_head_sub_classes" => "headline font-weight-light mt-5",
   "about_head_sub_style" => "",
 
   // Image
   "about_head_img" => "https://picsum.photos/id/3/510/300",
   "about_head_img_aspect_ratio" => "1.7",
-  "about_head_img_max_height" => "360",
+  "about_head_img_max_height" => "390",
   "about_head_img_classes" => "elevation-3",
   "about_head_img_overlay_opacity" => "0.8",
   "about_head_img_overlay_color" => "#000000",

@@ -10,10 +10,10 @@
           offset-sm="1"
           md="8"
           offset-md="2"
-          lg="6"
-          offset-lg="3"
-          xl="4"
-          offset-xl="4"
+          lg="8"
+          offset-lg="2"
+          xl="6"
+          offset-xl="3"
         >
           <v-container class="pa-0">
             <v-row dense>
@@ -34,7 +34,7 @@
             </v-row>
           </v-container>
 
-          <v-card elevation="14" :outlined="false">
+          <v-card elevation="14" :outlined="false" class="mt-2 mb-5">
             <v-hover>
               <template v-slot:default="{ hover }">
                 <div>
@@ -52,8 +52,8 @@
                       <v-col cols="8" sm="9">
                         <div class="ma-2">
                           <div class="title" v-html="$auth.user().name" />
-                          <div v-html="$auth.user().job_title" class="mb-1 body-1 font-weight-bold" />
-                          <div v-html="$auth.user().bio" class="body-2" />
+                          <div v-html="$auth.user().job_title" class="mb-1 body-1" />
+                          <div v-html="$auth.user().bio" class="body-2 mb-1" />
                           <div v-if="resume !== null">
                             <v-chip v-for="(tag, index) in resume.tags" :key="index" label class="mr-2 mt-2" small v-html="tag" />
                           </div>                          
