@@ -1,4 +1,3 @@
-
 <template>
   <div class="viewContainer">
     <v-container

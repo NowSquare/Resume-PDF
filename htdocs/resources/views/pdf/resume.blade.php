@@ -2,65 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ $user->name }}<?php if ($user->job_title != '') echo ' - ' . $user->job_title; ?></title>
+    <title>{{ ($user->job_title != '') ? $user->name . ' - ' . $user->job_title : $user->name }}</title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
-    <style type="text/css">
-    tr, td, .page-break-inside-avoid {
-      page-break-inside: avoid;
-    }
-    .break-word {  
-      word-break: break-word;  
-    }
-    .avatar {
-      object-fit: cover;
-      border-radius: 50%;
-    }
-    .icon {
-      fill: #222;
-      width:24px;
-      height:24px;
-      margin-top:-5px;
-    }
-    .icon-s {
-      margin-top:-4px;
-      width:18px;
-      height:18px;
-      fill: #333;
-    }
-    .font-weight-thin {
-      font-family: RobTh;
-    }
-    .display-4,
-    .display-3,
-    .display-2,
-    .display-1,
-    .tags,
-    .lead,
-    .font-weight-light {
-      font-family: RobLi;
-    }
-    .h1,
-    .h2,
-    .h4,
-    .font-weight-medium {
-      font-family: RobMe;
-    }
-    .font-weight-regular {
-      font-family: Roboto;
-    }
-    .h3,
-    .h5,
-    .h6,
-    strong,
-    .font-weight-bold {
-      font-family: RobBo;
-    }
-    .font-weight-black {
-      font-family: RobBl;
-    }
-
-    </style>
-    </head>
+  </head>
   <body>
     <div class="page">
       <div class="inner-page">
@@ -77,20 +21,11 @@ if (isset($resume['experience']) && count($resume['experience']) > 0) {
                   <h1 class="display-4">{{ trans('app.experience') }}</h1>
                 </div>
               </div>
-<?php /*
-              <div class="row my-4">
-                <div class="col">
-                  <p class="text-justify">
-                      Praesent ultricies ante non mi mattis, non convallis mi vulputate. Nullam sollicitudin quam sit amet nibh pretium placerat.
-                  </p>
-                </div>
-              </div>
-*/ ?>
               <div class="row my-4">
                 <div class="col">
                   <table class="table table-striped mt-4 mb-5 table-bordered">
 <?php
-foreach ($resume['experience'] as $item) {
+  foreach ($resume['experience'] as $item) {
 ?>
                     <tr>
                       <td>
@@ -108,11 +43,17 @@ foreach ($resume['experience'] as $item) {
                         <div class="row mb-2">
                           <div class="col-1">
                             <svg class="icon icon-s" viewBox="0 0 24 24">
-<?php if ($item['type'] == 'education') { ?>
+<?php 
+    if ($item['type'] == 'education') { 
+?>
                               <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" />
-<?php } elseif ($item['type'] == 'work') { ?>
+<?php
+    } elseif ($item['type'] == 'work') { 
+?>
                               <path d="M18,15H16V17H18M18,11H16V13H18M20,19H12V17H14V15H12V13H14V11H12V9H20M10,7H8V5H10M10,11H8V9H10M10,15H8V13H10M10,19H8V17H10M6,7H4V5H6M6,11H4V9H6M6,15H4V13H6M6,19H4V17H6M12,7V3H2V21H22V7H12Z" />
-<?php } ?>
+<?php
+    }
+?>
                             </svg>
                           </div>
                           <div class="col-11">
@@ -140,7 +81,7 @@ foreach ($resume['experience'] as $item) {
                       </td>
                     </tr>
 <?php
-}
+  }
 ?>
                   </table>
                 </div>
@@ -160,11 +101,11 @@ if ($resume['tags'] !== null && ! empty($resume['tags'])) {
 ?>
               <p class="tags">
 <?php
-foreach ($resume['tags'] as $tag) {
+  foreach ($resume['tags'] as $tag) {
 ?>
                 <span class="badge badge-secondary">{!! $tag !!}</span>
 <?php 
-}
+  }
 ?>
               </p>
 <?php
@@ -186,8 +127,7 @@ if ($user->contact_phone !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->contact_email !== null) {
 ?>
                 <tr>
@@ -200,8 +140,7 @@ if ($user->contact_email !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->website !== null) {
 ?>
                 <tr>
@@ -214,8 +153,7 @@ if ($user->website !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->linkedin !== null) {
 ?>
                 <tr>
@@ -228,8 +166,7 @@ if ($user->linkedin !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->languages !== null) {
 ?>
                 <tr>
@@ -242,8 +179,7 @@ if ($user->languages !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->date_of_birth !== null) {
 ?>
                 <tr>
@@ -256,8 +192,7 @@ if ($user->date_of_birth !== null) {
                 </tr>
 <?php
 }
-?>
-<?php
+
 if ($user->address1 !== null || $user->address2 !== null || $user->address3 !== null) {
 ?>
                 <tr>
@@ -267,11 +202,9 @@ if ($user->address1 !== null || $user->address2 !== null || $user->address3 !== 
                     </svg>
                   </td>
                   <td>
-<?php
-if ($user->address1 !== null) echo $user->address1 . '<br>';
-if ($user->address2 !== null) echo $user->address2 . '<br>';
-if ($user->address3 !== null) echo $user->address3;
-?>
+                    {!! ($user->address1 !== null) ? $user->address1 . '<br>' : '' !!}
+                    {!! ($user->address2 !== null) ? $user->address2 . '<br>' : '' !!}
+                    {!! ($user->address3 !== null) ? $user->address3 : '' !!}
                   </td>
                 </tr>
 <?php
@@ -288,44 +221,39 @@ if (isset($resume['projects']) && count($resume['projects']) > 0) {
               <h1 class="display-4">{{ trans('app.projects') }}</h1>
             </div>
           </div>
-<?php /*
-          <div class="row my-4">
-            <div class="col">
-              <p class="text-justify">
-                  Quisque neque sem, laoreet pulvinar velit a, hendrerit venenatis est. Nullam vitae sodales erat. Nullam sollicitudin quam sit amet nibh pretium placerat.
-              </p>
-            </div>
-          </div>
-*/ ?>
 <?php
-foreach ($resume['projects'] as $index => $item) {
+  foreach ($resume['projects'] as $index => $item) {
 ?>
 
                 <div class="row my-4 page-break-inside-avoid">
-<?php if ($item['image'] !== null) { ?>
+<?php
+    if ($item['image'] !== null) {
+?>
                   <div class="col-6">
                     <div class="card shadow">
                       <img src="{{ $item['image'] }}" class="img-fluid">
                     </div>
                   </div>
-<?php } ?>
-                  <div class="col-<?php echo ($item['image'] !== null) ? '6' : '12'; ?>">
+<?php
+    }
+?>
+                  <div class="col-{{ ($item['image'] !== null) ? '6' : '12' }}">
                     <div class="h4">{!! $item['title'] !!}</div>
                     <div class="h6 text-muted">{!! $item['date'] !!}</div>
                     <p>{!! $item['description'] !!}</p>
 <?php
-if (isset($item['tags']) && is_array($item['tags'])) {
-  echo '<div class="tags">';
-  foreach ($item['tags'] as $tag) {
-    echo '<span class="badge badge-secondary">' . $tag . '</span> ';
-  }
-  echo '</div>';
-}
+    if (isset($item['tags']) && is_array($item['tags'])) {
+      echo '<div class="tags">';
+      foreach ($item['tags'] as $tag) {
+        echo '<span class="badge badge-secondary">' . htmlspecialchars($tag) . '</span> ';
+      }
+      echo '</div>';
+    }
 ?>
                   </div>
                 </div>
 <?php 
-}
+  }
 ?>
 <?php 
 }

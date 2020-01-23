@@ -193,42 +193,6 @@
               </v-list-item>
             </v-list>
           </v-menu>
-<!--
-          <v-menu offset-y bottom left origin="top right" v-if="$auth.check()">
-            <template v-slot:activator="{ on }">
-              <div class="d-flex align-center ml-3">
-                <v-btn
-                  icon
-                  large
-                  v-on="on"
-                >
-                <v-avatar
-                  v-if="$auth.check()"
-                  :tile="false"
-                  :size="32"
-                  >
-                  <x-avatar :username="$auth.user().name" :size="32"></x-avatar>
-                  </v-avatar>
-                </v-btn>
-              </div>
-            </template>
-            <v-list>
-              <v-subheader>{{ $auth.user().email }}</v-subheader>
-              <v-divider :inset="false"></v-divider>
-              <v-list-item :to="{name: 'profile'}">
-                <v-list-item-content>
-                  <v-list-item-title>Profile</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-              <v-divider :inset="false"></v-divider>
-              <v-list-item @click="$auth.logout()">
-                <v-list-item-content>
-                  <v-list-item-title>Logout</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-menu>
--->
           <div class="d-md-none d-lg-none d-xl-none d-flex align-center ml-3">
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"><v-icon v-if="!drawer">mdi-menu</v-icon><v-icon v-if="drawer">mdi-menu-open</v-icon></v-app-bar-nav-icon>
           </div>
@@ -244,19 +208,7 @@
       padless
       :style="{'margin-left': ($auth.check() && $store.state.app.dashboardDrawer && this.$vuetify.breakpoint.lgAndUp) ? '256px' : 0}"
     >
-      <v-container><!--
-        <v-row
-          no-gutters
-        >
-          <v-col
-            cols="6"
-            md="4"
-            xl="3"
-          >
-
-            <h2 class="headline mt-5 mb-3" v-html="$init.app.name"></h2>
-          </v-col>
-        </v-row>-->
+      <v-container>
         <v-row
           no-gutters
           class="px-5"
