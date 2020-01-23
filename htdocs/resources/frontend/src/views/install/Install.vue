@@ -390,8 +390,7 @@
 export default {
   data: () => ({
     installed: false,
-    step: 0,
-    selectedTab: 'requirements',
+    step: 1,
     requirements: [],
     allRequirementsMet: true,
     locales: null,
