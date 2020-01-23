@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-<head>
+  <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
     <script>
@@ -20,20 +20,20 @@
       font-size: 14px;
     }
     </style>
-</head>
-<body onload="subst()">
-  <table width="100%" cellpadding="0" cellspacing="0">
-    <tr>
-      <td>
-        {{ \Carbon\Carbon::now()->settings(['locale' => str_replace('-', '_', $user->locale)])->isoFormat('LL') }}
+  </head>
+  <body onload="subst()">
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          {{ \Carbon\Carbon::now()->settings(['locale' => str_replace('-', '_', $user->locale)])->isoFormat('LL') }}
 <?php if ($user->premium != 1) { ?>
-         - <a href="{{ config('default.app_url') }}" class="link">{{ config('default.app_url') }}</a>
+          - <a href="{{ config('default.app_url') }}" class="link">{{ config('default.app_url') }}</a>
 <?php } ?>
-      </td>
-      <td align="right">
-        {!! trans('app.page_of_', ['page' => '<span class="page"></span>', 'topage' => '<span class="topage"></span>']) !!}
-      </td>
-    </tr>
-  </table>
-</body>
+        </td>
+        <td align="right">
+          {!! trans('app.page_of_', ['page' => '<span class="page"></span>', 'topage' => '<span class="topage"></span>']) !!}
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>

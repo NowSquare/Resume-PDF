@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ $user->name }}<?php if ($user->job_title != '') echo ' - ' . $user->job_title; ?></title>
     <link rel="stylesheet" href="{{ url('css/app.css') }}">
     <style type="text/css">
@@ -13,24 +11,11 @@
     .break-word {  
       word-break: break-word;  
     }
-    .page-title,
-    .page-subtitle {
-      font-family: 'Roboto';
-    }
-    .page-title {
-      font-weight: 100;
-      font-size: 3.5rem;
-    }
-    .page-subtitle {
-      font-weight: 500;
-      font-size: 1.6rem;
-    }
     .avatar {
       object-fit: cover;
       border-radius: 50%;
     }
-    .icon,
-    .inline-icon {
+    .icon {
       fill: #222;
       width:24px;
       height:24px;
@@ -42,9 +27,35 @@
       height:18px;
       fill: #333;
     }
-    .inline-icon {
-      display: inline;
-      margin-right: 2px;
+    .display-4,
+    .display-3,
+    .display-2,
+    .display-1,
+    .tags,
+    .font-weight-thin {
+      font-family: 'Roboto Thin';
+    }
+    .font-weight-light {
+      font-family: 'Roboto Light';
+    }
+    .h1,
+    .h2,
+    .font-weight-medium {
+      font-family: 'Roboto Medium';
+    }
+    .lead,
+    .font-weight-regular {
+      font-family: 'Roboto';
+    }
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .font-weight-bold {
+      font-family: 'Roboto Bold';
+    }
+    .font-weight-black {
+      font-family: 'Roboto Black';
     }
     </style>
     </head>
@@ -54,8 +65,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-8">
-              <div class="page-title">{{ $user->name }}</div>
-              <div class="page-subtitle mt-1">{{ $user->job_title }}</div>
+              <div style="font-family: 'Roboto Thin'; font-size: 3.5rem;">{{ $user->name }}</div>
+              <div class="mt-1" style="font-family: 'Roboto';font-size: 1.6rem;">{{ $user->job_title }}</div>
 <?php
 if (isset($resume['experience']) && count($resume['experience']) > 0) {
 ?>
@@ -145,7 +156,7 @@ foreach ($resume['experience'] as $item) {
 <?php
 if ($resume['tags'] !== null && ! empty($resume['tags'])) {
 ?>
-              <p class="lead">
+              <p class="tags">
 <?php
 foreach ($resume['tags'] as $tag) {
 ?>
@@ -302,7 +313,7 @@ foreach ($resume['projects'] as $index => $item) {
                     <p>{!! $item['description'] !!}</p>
 <?php
 if (isset($item['tags']) && is_array($item['tags'])) {
-  echo '<div>';
+  echo '<div class="tags">';
   foreach ($item['tags'] as $tag) {
     echo '<span class="badge badge-secondary">' . $tag . '</span> ';
   }

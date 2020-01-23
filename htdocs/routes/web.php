@@ -12,4 +12,3 @@
 */
 
 Route::get('/{any?}', '\Platform\Controllers\App\AppController@index')->where('any', '^(?!api|c\/)[\/\w\.-]*');
-Route::get('/c/{uuid}', '\Platform\Controllers\Pages\PageController@getClick');
