@@ -518,7 +518,7 @@ return [
   "create_experience" => "Create experience",
   "projects" => "Projects",
   "project_image_hint" => "For best results, use an image of 1920 x 1080 pixels.",
-  "projects_empty_list" => "Add projects to showcase. This is optional.",
+  "projects_empty_list" => "Projects are optional. They are a way of showcasing projects and products.",
   "edit_project" => "Edit project",
   "create_project" => "Create project",
   "location" => "Location",

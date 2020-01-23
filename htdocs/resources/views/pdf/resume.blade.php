@@ -27,36 +27,38 @@
       height:18px;
       fill: #333;
     }
+    .font-weight-thin {
+      font-family: RobTh;
+    }
     .display-4,
     .display-3,
     .display-2,
     .display-1,
     .tags,
-    .font-weight-thin {
-      font-family: 'Roboto Thin';
-    }
+    .lead,
     .font-weight-light {
-      font-family: 'Roboto Light';
+      font-family: RobLi;
     }
     .h1,
     .h2,
+    .h4,
     .font-weight-medium {
-      font-family: 'Roboto Medium';
+      font-family: RobMe;
     }
-    .lead,
     .font-weight-regular {
-      font-family: 'Roboto';
+      font-family: Roboto;
     }
     .h3,
-    .h4,
     .h5,
     .h6,
+    strong,
     .font-weight-bold {
-      font-family: 'Roboto Bold';
+      font-family: RobBo;
     }
     .font-weight-black {
-      font-family: 'Roboto Black';
+      font-family: RobBl;
     }
+
     </style>
     </head>
   <body>
@@ -65,8 +67,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-8">
-              <div style="font-family: 'Roboto Thin'; font-size: 3.5rem;">{{ $user->name }}</div>
-              <div class="mt-1" style="font-family: 'Roboto';font-size: 1.6rem;">{{ $user->job_title }}</div>
+              <div style="font-family: RobTh; font-size: 3.5rem;">{{ $user->name }}</div>
+              <div class="mt-1" style="font-size: 1.6rem;">{{ $user->job_title }}</div>
 <?php
 if (isset($resume['experience']) && count($resume['experience']) > 0) {
 ?>

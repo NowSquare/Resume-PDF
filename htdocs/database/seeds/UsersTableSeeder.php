@@ -286,7 +286,7 @@ class UsersTableSeeder extends Seeder
           $user->contact_phone = $faker->tollFreePhoneNumber;
           $user->website = 'https://example.com';
           $user->languages = 'English (natively), German, French';
-          $user->linkedin = 'https://www.linkedin.com/company/nowsquare/';
+          $user->linkedin = 'https://www.linkedin.com/company/';
           $user->address1 = $faker->streetAddress;
           $user->address2 = $faker->postcode . ' ' . $faker->stateAbbr;
           $user->address3 = $faker->country;
@@ -311,6 +311,95 @@ class UsersTableSeeder extends Seeder
             return strtolower(str_replace(['#', '/', '\\', ' '], '-', $fileName));
           })
           ->toMediaCollection('avatar', 'media');
+
+          // Add tags
+          $tags = [];
+          for ($i = 0; $i < mt_rand(3, 9); $i++) {
+            $tags[] = ucfirst($faker->word);
+          }
+
+          $syncTags = [];
+          foreach ($tags as $tag) {
+            $t = new \Platform\Models\Tag;
+            $t->name = $tag;
+            $t->created_by = $user->id;
+            $t->save();
+            array_push($syncTags, $t->id);
+          }
+
+          $user->tags()->sync($syncTags);
+
+          // Add experience
+          $experiences = [];
+
+          $years_ago = 16;
+          $started_at = $faker->dateTimeBetween($startDate = '-' . $years_ago . ' years', $startDate = '-' . ($years_ago - 1) . ' years');
+          $years = 3;
+          $ended_at = $faker->dateTimeBetween($startDate = '-' . ($years_ago - $years) . ' years', $startDate = '-' . ($years_ago - $years - 1) . ' years');
+          $years_ago = $years_ago - $years;
+
+          $experiences[] = [
+            'type' => 'education',
+            'name' => $faker->company,
+            'location' => $faker->city . ', ' . $faker->stateabbr,
+            'description' => '<p>' . implode('</p><p>', $faker->paragraphs($nb = 1, $asText = false)) . '</p>',
+            'started_at' => $started_at,
+            'ended_at' => $ended_at
+          ];
+
+          $started_at = $ended_at;
+          $years = 2;
+          $years_ago = $years_ago - $years;
+          $ended_at = $faker->dateTimeBetween($startDate = '-' . ($years_ago) . ' years', $startDate = '-' . ($years_ago - 1) . ' years');
+
+          $experiences[] = [
+            'type' => 'education',
+            'name' => $faker->company,
+            'location' => $faker->city . ', ' . $faker->stateabbr,
+            'description' => '<p>' . implode('</p><p>', $faker->paragraphs($nb = 1, $asText = false)) . '</p>',
+            'started_at' => $started_at,
+            'ended_at' => $ended_at
+          ];
+
+          $started_at = $ended_at;
+          $years = 3;
+          $years_ago = $years_ago - $years;
+          $ended_at = $faker->dateTimeBetween($startDate = '-' . ($years_ago) . ' years', $startDate = '-' . ($years_ago - 1) . ' years');
+
+          $experiences[] = [
+            'type' => 'work',
+            'name' => $faker->company,
+            'location' => $faker->city . ', ' . $faker->stateabbr,
+            'description' => '<p>' . implode('</p><p>', $faker->paragraphs($nb = 1, $asText = false)) . '</p>',
+            'started_at' => $started_at,
+            'ended_at' => $ended_at
+          ];
+
+          $started_at = $ended_at;
+          $years = 4;
+          $years_ago = $years_ago - $years;
+          $ended_at = $faker->dateTimeBetween($startDate = '-' . ($years_ago) . ' years', $startDate = '-' . ($years_ago - 1) . ' years');
+
+          $experiences[] = [
+            'type' => 'work',
+            'name' => $faker->company,
+            'location' => $faker->city . ', ' . $faker->stateabbr,
+            'description' => '<p>' . implode('</p><p>', $faker->paragraphs($nb = 1, $asText = false)) . '</p>',
+            'started_at' => $started_at,
+            'ended_at' => $ended_at
+          ];
+
+          foreach ($experiences as $experience) {
+            $e = new \Platform\Models\ResumeExperience;
+            $e->type = $experience['type'];
+            $e->name = $experience['name'];
+            $e->location = $experience['location'];
+            $e->description = $experience['description'];
+            $e->started_at = $experience['started_at'];
+            $e->ended_at = $experience['ended_at'];
+            $e->created_by = $user->id;
+            $e->save();
+          }
         }
       }
 
