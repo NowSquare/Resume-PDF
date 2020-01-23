@@ -13,7 +13,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Fix for "Specified key was too long error" error
+        // https://laravel-news.com/laravel-5-4-key-too-long-error
+        \Schema::defaultStringLength(191);
     }
 
     /**
