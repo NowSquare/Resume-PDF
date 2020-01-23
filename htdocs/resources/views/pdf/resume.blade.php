@@ -11,8 +11,8 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-8">
-              <div style="font-family: RobTh; font-size: 3.5rem;">{{ $user->name }}</div>
-              <div class="mt-1" style="font-size: 1.6rem;">{{ $user->job_title }}</div>
+              <div class="page-title">{{ $user->name }}</div>
+              <div class="page-subtitle mt-1">{{ $user->job_title }}</div>
 <?php
 if (isset($resume['experience']) && count($resume['experience']) > 0) {
 ?>

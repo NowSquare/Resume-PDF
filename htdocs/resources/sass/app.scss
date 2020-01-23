@@ -74,25 +74,15 @@ tr, td, .page-break-inside-avoid {
   word-break: break-word;  
 }
 
-.avatar {
-  object-fit: cover;
-  border-radius: 50%;
+.page-title {
+  font-size: 3.5rem;
 }
 
-.icon {
-  fill: #222;
-  width:24px;
-  height:24px;
-  margin-top:-5px;
+.page-subtitle {
+  font-size: 1.6rem;
 }
 
-.icon-s {
-  margin-top:-4px;
-  width:18px;
-  height:18px;
-  fill: #333;
-}
-
+.page-title,
 .font-weight-thin {
   font-family: RobTh;
 }
@@ -128,6 +118,25 @@ strong,
 
 .font-weight-black {
   font-family: RobBl;
+}
+
+.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.icon {
+  fill: #222;
+  width:24px;
+  height:24px;
+  margin-top:-5px;
+}
+
+.icon-s {
+  margin-top:-4px;
+  width:18px;
+  height:18px;
+  fill: #333;
 }
 
 .footer {
