@@ -83,13 +83,20 @@
 <p>The application files are in the <code>htdocs</code> directory. Upload the files in this directory to the webroot of your hosting account.</p>
 <p>The script must be installed on a top level domain or subdomain. For instance <strong>example.com</strong> or <strong>sub.example.com</strong>. Sub-directories like <strong>example.com/resume</strong> are <strong>not</strong> supported.</p>
 <p>If you want to test on your localhost you have to create a host file entry like <strong>resume.test</strong>. It will not work on urls like <strong>127.0.0.0/resume</strong>.</p>
-<h2 id="page_Run-installation">Run installation</h2>
+<h2 id="page_Install-script">Install script</h2>
 <p>Open the url where you have installed the script. You should see a screen as follows:</p>
 <img src="../../images/screens/installation-1-requirements.png" class="img-screen" alt="Installation requirements">
 <p>Follow the installation steps and the script will be installed in the last step.</p>
-<h2 id="page_Execute-permission">Execute permission</h2>
-<p>If you use a Windows server (also WAMP server and other local development tools), you don't need to configure anything in most cases. If you can't download a PDF, give execute permission to <code>vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe</code>.</p>
-<p>For Unix based systems, set <code>vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64</code> to 774.</p>
+<h2 id="page_Configure-permission">Configure permission</h2>
+<p>Depending on the operating system of your server, you have to give one of these files execute permissions (CHMOD 774):</p>
+<ol>
+<li>Linux (Ubuntu, Debian and CentOS other than version 7): <code>vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64</code>
+</li>
+<li>CentOS 7: <code>vendor/jjcarmu/wkhtmltopdf-symfony4/bin/wkhtmltopdf</code>
+</li>
+<li>Windows (also WAMP server and other local development tools): in most cases you don't need to configure anything. But if you can't download a PDF, make sure the following file has permission to execute: <code>vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf.exe</code>.</li>
+</ol>
+<p>If you're not sure, CHMOD the files of #1 and #2 both.</p>
 <h1 id="page_Troubleshooting">Troubleshooting</h1>
 <h2 id="page_Logs">Logs</h2>
 <p>If you run into a 500 or other error, check the logs in <code>storage/logs</code>. Send us a support message if you are not sure what the logs mean.</p>
