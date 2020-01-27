@@ -294,6 +294,7 @@
       {{ $t('terms') }}
       </v-btn>
       <v-btn
+        dark
         text
         icon
         @click="$store.dispatch('setCookieConsent', false)"
