@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^6.5",
         "h4cc/wkhtmltoimage-amd64": "^0.12.4",
         "h4cc/wkhtmltopdf-amd64": "^0.12.4",
+        "jjcarmu/wkhtmltopdf-symfony4": "dev-master",
         "laravel/framework": "^6.9",
         "laravel/tinker": "^2.0",
         "laravolt/avatar": "^3.0",

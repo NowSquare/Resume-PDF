@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e85ef3e039b8437ac98316a23824184",
+    "content-hash": "111a1a8b2270d23cc870b2262140105b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1239,6 +1239,41 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jjcarmu/wkhtmltopdf-symfony4",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jjcarmu/wkhtmltopdf-symfony4.git",
+                "reference": "fbbfc405378c79260e3c06867048c7c670c67261"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jjcarmu/wkhtmltopdf-symfony4/zipball/fbbfc405378c79260e3c06867048c7c670c67261",
+                "reference": "fbbfc405378c79260e3c06867048c7c670c67261",
+                "shasum": ""
+            },
+            "bin": [
+                "bin/wkhtmltopdf",
+                "bin/wkhtmltoimage"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "The wkhtmltopdf and wkhtmltoimage binaries for CentOS7",
+            "keywords": [
+                "binary",
+                "convert",
+                "image",
+                "snapshot",
+                "thumbnail",
+                "wkhtmltoimage",
+                "wkhtmltopdf"
+            ],
+            "time": "2018-08-29T20:40:53+00:00"
         },
         {
             "name": "knplabs/knp-snappy",
@@ -7495,7 +7530,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "jjcarmu/wkhtmltopdf-symfony4": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

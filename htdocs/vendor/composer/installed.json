@@ -1674,6 +1674,43 @@
         "description": "Highlight PHP code in terminal"
     },
     {
+        "name": "jjcarmu/wkhtmltopdf-symfony4",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jjcarmu/wkhtmltopdf-symfony4.git",
+            "reference": "fbbfc405378c79260e3c06867048c7c670c67261"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jjcarmu/wkhtmltopdf-symfony4/zipball/fbbfc405378c79260e3c06867048c7c670c67261",
+            "reference": "fbbfc405378c79260e3c06867048c7c670c67261",
+            "shasum": ""
+        },
+        "time": "2018-08-29T20:40:53+00:00",
+        "bin": [
+            "bin/wkhtmltopdf",
+            "bin/wkhtmltoimage"
+        ],
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "The wkhtmltopdf and wkhtmltoimage binaries for CentOS7",
+        "keywords": [
+            "binary",
+            "convert",
+            "image",
+            "snapshot",
+            "thumbnail",
+            "wkhtmltoimage",
+            "wkhtmltopdf"
+        ]
+    },
+    {
         "name": "knplabs/knp-snappy",
         "version": "v1.2.1",
         "version_normalized": "1.2.1.0",
