@@ -95,6 +95,22 @@
                         <v-progress-circular indeterminate size="32"></v-progress-circular>
                       </v-overlay>
                     </v-list>
+
+                    <p class="mt-5">We need to know your web server distribution in order to generate PDFs. If you are not sure, you can contact your hosting provider. Or test different configurations after installation.</p>
+                    <p>You can change this in the <code>.env</code> file in the web root which is generated after this installation.</p>
+
+                    <x-autocomplete
+                      v-model="form1.WEB_SERVER"
+                      ref="form1.WEB_SERVER"
+                      id="form1.WEB_SERVER"
+                      :items="webServers"
+                      item-value="0" 
+                      item-text="1"
+                      label="Web server"
+                      name="Web server"
+                      rules="required"
+                    />
+
                     <div class="my-5">
                       <v-btn color="primary" @click="step = 2" :disabled="!allRequirementsMet">Next <v-icon class="ml-1" size="15">mdi-arrow-right</v-icon></v-btn>
                     </div>
@@ -395,8 +411,10 @@ export default {
     allRequirementsMet: true,
     locales: null,
     timezones: null,
+    webServers: null,
     form1: {
       loading: false,
+      WEB_SERVER: '',
       APP_NAME: 'My Business',
       APP_LOGO: '',
       APP_URL: location.protocol + '//' + location.hostname + (location.port ? ':' + location.port: ''),
@@ -437,6 +455,12 @@ export default {
 
           let res = response.data
           let found
+
+          this.webServers = this.$_.toPairs(res.servers)
+
+          found = (res.binaries_executable) ? true : false
+          if (! found) this.allRequirementsMet = false
+          this.requirements.push({'text': 'CHMOD 774 all files in /resources/wkhtmltopdf', 'found': found})
 
           found = (res.php) ? true : false
           if (! found) this.allRequirementsMet = false
@@ -496,6 +520,7 @@ export default {
   },
   mounted() {
     // Validate
+    this.$refs['form1.WEB_SERVER'].validate()
     this.$refs['form1.APP_NAME'].validate()
     this.$refs['form1.APP_URL'].validate()
     this.$refs['form1.APP_CONTACT_EMAIL'].validate()

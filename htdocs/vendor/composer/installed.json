@@ -1371,95 +1371,6 @@
         ]
     },
     {
-        "name": "h4cc/wkhtmltoimage-amd64",
-        "version": "0.12.4",
-        "version_normalized": "0.12.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/h4cc/wkhtmltoimage-amd64.git",
-            "reference": "c4e33f635207af89a704205b8902fb5715ca88be"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/h4cc/wkhtmltoimage-amd64/zipball/c4e33f635207af89a704205b8902fb5715ca88be",
-            "reference": "c4e33f635207af89a704205b8902fb5715ca88be",
-            "shasum": ""
-        },
-        "time": "2018-01-15T07:23:40+00:00",
-        "bin": [
-            "bin/wkhtmltoimage-amd64"
-        ],
-        "type": "library",
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL Version 3"
-        ],
-        "authors": [
-            {
-                "name": "Julius Beckmann",
-                "email": "github@h4cc.de"
-            }
-        ],
-        "description": "Convert html to image using webkit (qtwebkit). Static linked linux binary for amd64 systems.",
-        "homepage": "http://wkhtmltopdf.org/",
-        "keywords": [
-            "binary",
-            "convert",
-            "image",
-            "snapshot",
-            "thumbnail",
-            "wkhtmltoimage"
-        ]
-    },
-    {
-        "name": "h4cc/wkhtmltopdf-amd64",
-        "version": "0.12.4",
-        "version_normalized": "0.12.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/h4cc/wkhtmltopdf-amd64.git",
-            "reference": "4e2ab2d032a5d7fbe2a741de8b10b8989523c95b"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/h4cc/wkhtmltopdf-amd64/zipball/4e2ab2d032a5d7fbe2a741de8b10b8989523c95b",
-            "reference": "4e2ab2d032a5d7fbe2a741de8b10b8989523c95b",
-            "shasum": ""
-        },
-        "time": "2018-01-15T06:57:33+00:00",
-        "bin": [
-            "bin/wkhtmltopdf-amd64"
-        ],
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "h4cc\\WKHTMLToPDF\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL Version 3"
-        ],
-        "authors": [
-            {
-                "name": "Julius Beckmann",
-                "email": "github@h4cc.de"
-            }
-        ],
-        "description": "Convert html to pdf using webkit (qtwebkit). Static linked linux binary for amd64 systems.",
-        "homepage": "http://wkhtmltopdf.org/",
-        "keywords": [
-            "binary",
-            "convert",
-            "pdf",
-            "snapshot",
-            "thumbnail",
-            "wkhtmltopdf"
-        ]
-    },
-    {
         "name": "hamcrest/hamcrest-php",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -1672,43 +1583,6 @@
             }
         ],
         "description": "Highlight PHP code in terminal"
-    },
-    {
-        "name": "jjcarmu/wkhtmltopdf-symfony4",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/jjcarmu/wkhtmltopdf-symfony4.git",
-            "reference": "fbbfc405378c79260e3c06867048c7c670c67261"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/jjcarmu/wkhtmltopdf-symfony4/zipball/fbbfc405378c79260e3c06867048c7c670c67261",
-            "reference": "fbbfc405378c79260e3c06867048c7c670c67261",
-            "shasum": ""
-        },
-        "time": "2018-08-29T20:40:53+00:00",
-        "bin": [
-            "bin/wkhtmltopdf",
-            "bin/wkhtmltoimage"
-        ],
-        "type": "library",
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "proprietary"
-        ],
-        "description": "The wkhtmltopdf and wkhtmltoimage binaries for CentOS7",
-        "keywords": [
-            "binary",
-            "convert",
-            "image",
-            "snapshot",
-            "thumbnail",
-            "wkhtmltoimage",
-            "wkhtmltopdf"
-        ]
     },
     {
         "name": "knplabs/knp-snappy",
@@ -4850,17 +4724,17 @@
     },
     {
         "name": "scrivo/highlight.php",
-        "version": "v9.17.1.0",
-        "version_normalized": "9.17.1.0",
+        "version": "v9.17.1.1",
+        "version_normalized": "9.17.1.1",
         "source": {
             "type": "git",
             "url": "https://github.com/scrivo/highlight.php.git",
-            "reference": "5451a9ad6d638559cf2a092880f935c39776134e"
+            "reference": "abe5a2f0b21de310c9fccf4daafeb93e597ec7bc"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/5451a9ad6d638559cf2a092880f935c39776134e",
-            "reference": "5451a9ad6d638559cf2a092880f935c39776134e",
+            "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/abe5a2f0b21de310c9fccf4daafeb93e597ec7bc",
+            "reference": "abe5a2f0b21de310c9fccf4daafeb93e597ec7bc",
             "shasum": ""
         },
         "require": {
@@ -4870,13 +4744,13 @@
         },
         "require-dev": {
             "phpunit/phpunit": "^4.8|^5.7",
-            "symfony/finder": "^3.4",
-            "symfony/var-dumper": "^3.4"
+            "symfony/finder": "^2.8|^3.4",
+            "symfony/var-dumper": "^2.8|^3.4"
         },
         "suggest": {
             "ext-dom": "Needed to make use of the features in the utilities namespace"
         },
-        "time": "2019-12-13T21:54:06+00:00",
+        "time": "2020-01-27T08:38:19+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -5559,21 +5433,22 @@
     },
     {
         "name": "spatie/image",
-        "version": "1.7.5",
-        "version_normalized": "1.7.5.0",
+        "version": "1.7.6",
+        "version_normalized": "1.7.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/spatie/image.git",
-            "reference": "9e36dcc1c5da4e8756a4fd00228342a9c9953f4b"
+            "reference": "74535b5fd67ace75840c00c408666660843e755e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/spatie/image/zipball/9e36dcc1c5da4e8756a4fd00228342a9c9953f4b",
-            "reference": "9e36dcc1c5da4e8756a4fd00228342a9c9953f4b",
+            "url": "https://api.github.com/repos/spatie/image/zipball/74535b5fd67ace75840c00c408666660843e755e",
+            "reference": "74535b5fd67ace75840c00c408666660843e755e",
             "shasum": ""
         },
         "require": {
             "ext-exif": "*",
+            "ext-mbstring": "*",
             "league/glide": "^1.4",
             "php": "^7.0",
             "spatie/image-optimizer": "^1.0",
@@ -5585,7 +5460,7 @@
             "phpunit/phpunit": "^6.0|^7.0",
             "symfony/var-dumper": "^3.2|^5.0"
         },
-        "time": "2019-11-23T17:56:34+00:00",
+        "time": "2020-01-26T18:56:44+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -5666,33 +5541,34 @@
     },
     {
         "name": "spatie/laravel-medialibrary",
-        "version": "7.18.1",
-        "version_normalized": "7.18.1.0",
+        "version": "7.18.2",
+        "version_normalized": "7.18.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/spatie/laravel-medialibrary.git",
-            "reference": "0b0a729ce7253a08bf8d7a8c97c172e54f7203ae"
+            "reference": "08a004244205cda5466adb16fea436d59fd63d29"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/0b0a729ce7253a08bf8d7a8c97c172e54f7203ae",
-            "reference": "0b0a729ce7253a08bf8d7a8c97c172e54f7203ae",
+            "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/08a004244205cda5466adb16fea436d59fd63d29",
+            "reference": "08a004244205cda5466adb16fea436d59fd63d29",
             "shasum": ""
         },
         "require": {
             "ext-fileinfo": "*",
-            "illuminate/bus": "~5.8.35|^6.0",
-            "illuminate/console": "~5.8.35|^6.0",
-            "illuminate/database": "~5.8.35|^6.0",
-            "illuminate/pipeline": "~5.8.35|^6.0",
-            "illuminate/support": "~5.8.35|^6.0",
+            "ext-json": "*",
+            "illuminate/bus": "~5.8.35|^6.0|^7.0",
+            "illuminate/console": "~5.8.35|^6.0|^7.0",
+            "illuminate/database": "~5.8.35|^6.0|^7.0",
+            "illuminate/pipeline": "~5.8.35|^6.0|^7.0",
+            "illuminate/support": "~5.8.35|^6.0|^7.0",
             "league/flysystem": "^1.0.8",
             "maennchen/zipstream-php": "^1.0",
             "php": "^7.2",
             "spatie/image": "^1.4.0",
             "spatie/pdf-to-image": "^2.0",
             "spatie/temporary-directory": "^1.1",
-            "symfony/console": "^4.4"
+            "symfony/console": "^4.4|^5.0"
         },
         "conflict": {
             "php-ffmpeg/php-ffmpeg": "<0.6.1"
@@ -5702,8 +5578,8 @@
             "ext-pdo_sqlite": "*",
             "guzzlehttp/guzzle": "^6.3",
             "league/flysystem-aws-s3-v3": "^1.0.13",
-            "mockery/mockery": "^1.0.0",
-            "orchestra/testbench": "~3.8.0|^4.0",
+            "mockery/mockery": "^1.0",
+            "orchestra/testbench": "^3.8|^4.0|^5.0",
             "phpunit/phpunit": "^8.0",
             "spatie/phpunit-snapshot-assertions": "^2.0"
         },
@@ -5711,7 +5587,7 @@
             "league/flysystem-aws-s3-v3": "Required to use AWS S3 file storage",
             "php-ffmpeg/php-ffmpeg": "Required for generating video thumbnails"
         },
-        "time": "2020-01-15T14:03:33+00:00",
+        "time": "2020-01-25T11:32:31+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -7717,59 +7593,6 @@
             "assert",
             "check",
             "validate"
-        ]
-    },
-    {
-        "name": "wemersonjanuario/wkhtmltopdf-windows",
-        "version": "0.12.2.3",
-        "version_normalized": "0.12.2.3",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/wemersonjanuario/wkhtmltopdf-windows.git",
-            "reference": "90fcd3487cad5931287742113c449b926e9e48d8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/wemersonjanuario/wkhtmltopdf-windows/zipball/90fcd3487cad5931287742113c449b926e9e48d8",
-            "reference": "90fcd3487cad5931287742113c449b926e9e48d8",
-            "shasum": ""
-        },
-        "suggest": {
-            "h4cc/wkhtmltopdf-amd64": "*",
-            "h4cc/wkhtmltopdf-i386": "*",
-            "wemersonjanuario/laravelpdf": "1.0.*"
-        },
-        "time": "2015-06-30T20:19:22+00:00",
-        "bin": [
-            "bin/32bit/wkhtmltopdf.exe",
-            "bin/32bit/wkhtmltoimage.exe",
-            "bin/64bit/wkhtmltopdf.exe",
-            "bin/64bit/wkhtmltoimage.exe"
-        ],
-        "type": "library",
-        "installation-source": "dist",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL Version 3"
-        ],
-        "authors": [
-            {
-                "name": "Wemerson Januario",
-                "email": "wemerson.januario@gmail.com",
-                "homepage": "http://wemersonjanuario.com.br"
-            }
-        ],
-        "description": "Convert html to pdf using webkit (qtwebkit). Static linked windows binary for 32 bit and 64 bit systems.",
-        "homepage": "http://wkhtmltopdf.org/",
-        "keywords": [
-            "binary",
-            "convert",
-            "htmltoimage",
-            "htmltopdf",
-            "pdf",
-            "snapshot",
-            "thumbnail",
-            "wkhtmltopdf"
         ]
     }
 ]

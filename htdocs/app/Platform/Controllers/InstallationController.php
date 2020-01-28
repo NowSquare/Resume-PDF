@@ -25,9 +25,57 @@ class InstallationController extends \App\Http\Controllers\Controller {
       if ($this->isInstalled()) {
         $response = ['redirect' => 'home'];
       } else {
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+          $distro = 'Windows';
+        } else {
+          //declare Linux distros(extensible list).
+          $distros = array(
+            "Arch" => "arch-release",
+            "Debian" => "debian_version",
+            "Fedora" => "fedora-release",
+            "Ubuntu" => "lsb-release",
+            'Redhat' => 'redhat-release',
+            'CentOS' => 'centos-release'
+          );
+          //Get everything from /etc directory.
+          $etcList = scandir('/etc');
+
+          //Loop through /etc results...
+          $distro = '';
+          foreach ($etcList as $entry) {
+            //Loop through list of distros..
+            foreach ($distros as $distroReleaseFile) {
+              //Match was found.
+              if ($distroReleaseFile === $entry) {
+                //Find distros array key(i.e. Distro name) by value(i.e. distro release file)
+                $distro = array_search($distroReleaseFile, $distros);
+                break 2;//Break inner and outer loop.
+              }
+            }
+          }
+        }
+
+        $binaries_executable = true;
+        $dir = base_path('resources/wkhtmltopdf/');
+        $files = \File::files($dir);
+        foreach($files as $f) {
+          if (! is_executable($f)) $binaries_executable = false;
+        }
+
         $response = [
+          'binaries_executable' => $binaries_executable,
           'php' => version_compare (PHP_VERSION, '7.2.0') >= 0,
           'pdo_mysql' => extension_loaded ('pdo_mysql'),
+          'distro' => $distro,
+          'servers' => [
+            'windows-64' => 'Windows 64-bit',
+            'amd64-debian10' => 'Debian 10 64-bit',
+            'amd64-debian9' => 'Debian 9 64-bit',
+            'amd64-ubuntu1804' => 'Ubuntu 18.04 64-bit',
+            'amd64-ubuntu1604' => 'Ubuntu 16.04 64-bit',
+            'x86_64-centos8' => 'Centos 8 64-bit',
+            'x86_64-centos7' => 'Centos 7 64-bit',
+          ],
           'bcmath' => extension_loaded ('bcmath'),
           'ctype' => extension_loaded ('ctype'),
           'json' => extension_loaded ('json'),

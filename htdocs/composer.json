@@ -15,17 +15,13 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.5",
-        "h4cc/wkhtmltoimage-amd64": "^0.12.4",
-        "h4cc/wkhtmltopdf-amd64": "^0.12.4",
-        "jjcarmu/wkhtmltopdf-symfony4": "dev-master",
         "laravel/framework": "^6.9",
         "laravel/tinker": "^2.0",
         "laravolt/avatar": "^3.0",
         "maatwebsite/excel": "^3.1",
         "pyyoshi/shortuuid-php": "^1.0",
         "spatie/laravel-medialibrary": "^7.17",
-        "tymon/jwt-auth": "1.0.0-rc.5",
-        "wemersonjanuario/wkhtmltopdf-windows": "0.12.2.3"
+        "tymon/jwt-auth": "1.0.0-rc.5"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

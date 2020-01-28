@@ -97,10 +97,6 @@ class ComposerStaticInit2d3e3b886c19d84d5ed9544e503c5ae1
             'phpseclib\\' => 10,
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'h' => 
-        array (
-            'h4cc\\WKHTMLToPDF\\' => 17,
-        ),
         'b' => 
         array (
             'bcmath_compat\\' => 14,
@@ -274,10 +270,6 @@ class ComposerStaticInit2d3e3b886c19d84d5ed9544e503c5ae1
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-        ),
-        'h4cc\\WKHTMLToPDF\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/h4cc/wkhtmltopdf-amd64',
         ),
         'bcmath_compat\\' => 
         array (
@@ -5825,7 +5817,6 @@ class ComposerStaticInit2d3e3b886c19d84d5ed9544e503c5ae1
         'ZipStream\\Stream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/Stream.php',
         'ZipStream\\ZipStream' => __DIR__ . '/..' . '/maennchen/zipstream-php/src/ZipStream.php',
         'bcmath_compat\\BCMath' => __DIR__ . '/..' . '/phpseclib/bcmath_compat/src/BCMath.php',
-        'h4cc\\WKHTMLToPDF\\WKHTMLToPDF' => __DIR__ . '/..' . '/h4cc/wkhtmltopdf-amd64/WKHTMLToPDF.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

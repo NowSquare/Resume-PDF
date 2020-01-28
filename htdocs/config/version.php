@@ -7,5 +7,5 @@
    */
 
 return [
-  'current' => '1.1.0',
+  'current' => '1.2.0',
 ];
