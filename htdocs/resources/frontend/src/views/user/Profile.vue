@@ -367,13 +367,14 @@
         let settings = { headers: { 'content-type': 'multipart/form-data' } }
 
         // Remove image urls
-        let formModel = Object.assign({}, this.form1);
-        formModel.avatar_media_url = null;
+        let formModel = Object.assign({}, this.form1)
+        formModel.avatar_media_url = null
 
-        let formData = new FormData(document.getElementById('form1'));
+        let formData = new FormData(document.getElementById('form1'))
 
         for (let field in formModel) {
-          formData.append(field, formModel[field])
+          let val = (formModel[field] === null) ? '' : formModel[field];
+          formData.append(field, val)
         }
 
         this.axios

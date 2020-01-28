@@ -382,7 +382,6 @@ class AuthController extends \App\Http\Controllers\Controller
       auth()->user()->linkedin = $request->linkedin;
       auth()->user()->timezone = $request->timezone;
       auth()->user()->locale = $request->locale;
-      auth()->user()->currency = $request->currency;
       auth()->user()->language = explode('_', $request->locale)[0];
 
       // Update password
@@ -454,7 +453,7 @@ class AuthController extends \App\Http\Controllers\Controller
             'val' => $record->name
           ];
         }),*/
-        'date_of_birth' => $user->date_of_birth ?? '',
+        'date_of_birth' => ($user->date_of_birth !== null) ? $user->date_of_birth->format('Y-m-d') : '',
         'contact_phone' => $user->contact_phone ?? '',
         'contact_email' => $user->contact_email ?? '',
         'address1' => $user->address1 ?? '',

@@ -551,9 +551,11 @@ class DataFormController extends \App\Http\Controllers\Controller
             $query->{$column} = $value->format('Y-m-d H:i:s');
           }
         } elseif ($value['type'] == 'date') {
-          if ($value['value'] != '') {
+          if ($value['value'] != '' && $value['value'] != null) {
             $value = Carbon::parse($value['value'], auth()->user()->getTimezone());
             $query->{$column} = $value->format('Y-m-d');
+          } else {
+            $query->{$column} = null;
           }
         } elseif ($value['type'] == 'relation' && $value['relation']['type'] == 'belongsToMany') {
           // Do nothing, sync afterwards because it's possible a new record without id yet
