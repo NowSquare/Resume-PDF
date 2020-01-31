@@ -19,10 +19,10 @@
                   <v-tab :href="'#general'">
                     {{ $t('general') }}
                   </v-tab>
-                  <v-tab :href="'#'">
+                  <v-tab :href="'#localization'">
                     {{ $t('localization') }}
                   </v-tab>
-                  <v-tab :href="'#'">
+                  <v-tab :href="'#password'">
                     {{ $t('change_password') }}
                   </v-tab>
                 </v-tabs>
@@ -59,7 +59,7 @@
                     {{ $t('update_success') }}
                   </v-alert>
                   <v-tabs-items v-model="selected_tab" :touchless="false">
-                    <v-tab-item :value="'general'">
+                    <v-tab-item :transition="false" :reverse-transition="false" :value="'general'">
                       <x-text-field 
                         v-model="form1.name"
                         ref="form1.name"
@@ -76,7 +76,7 @@
                         rules="required|max:64|email"
                       />
                     </v-tab-item>
-                    <v-tab-item :value="'localization'">
+                    <v-tab-item :transition="false" :reverse-transition="false" :value="'localization'">
                       <x-autocomplete
                         v-model="form1.locale"
                         :items="locales"
@@ -98,7 +98,7 @@
                         rules="required"
                       />
                     </v-tab-item>
-                    <v-tab-item :value="'password'">
+                    <v-tab-item :transition="false" :reverse-transition="false" :value="'password'">
                       <x-password
                         v-model="form1.new_password"
                         ref="form1.new_password"

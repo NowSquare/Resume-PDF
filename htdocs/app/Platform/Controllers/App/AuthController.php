@@ -446,13 +446,6 @@ class AuthController extends \App\Http\Controllers\Controller
         'job_title' => $user->job_title ?? '',
         'bio' => $user->bio ?? '',
         'tags' => $user->tags()->pluck('tags.id'),
-        /*
-        'tags2' => $user->tags()->get()->map(function ($record, $key) {
-          return [
-            'pk' => $record->id,
-            'val' => $record->name
-          ];
-        }),*/
         'date_of_birth' => ($user->date_of_birth !== null) ? $user->date_of_birth->format('Y-m-d') : '',
         'contact_phone' => $user->contact_phone ?? '',
         'contact_email' => $user->contact_email ?? '',
