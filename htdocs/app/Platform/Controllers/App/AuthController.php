@@ -90,7 +90,7 @@ class AuthController extends \App\Http\Controllers\Controller
       app()->setLocale($locale);
 
       $v = Validator::make($request->all(), [
-        'email' => 'required|email|max:32',
+        'email' => 'required|email|max:64',
         'password' => 'required|min:6|max:24'
       ]);
 
@@ -368,6 +368,7 @@ class AuthController extends \App\Http\Controllers\Controller
 
       // All good, update profile
       auth()->user()->name = $request->name;
+      auth()->user()->job_title = $request->job_title;
       auth()->user()->bio = $request->bio;
       auth()->user()->email = $request->email;
       auth()->user()->date_of_birth = $request->date_of_birth;

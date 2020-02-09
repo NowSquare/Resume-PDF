@@ -273,8 +273,8 @@ return [
       "Yes, this service is completely free.",
     ],
     "How do I use this?" => [
-      "You get a link from us which you can use in the bio of your social media accounts, or for example as a QR code on your business card.",
-      "With this link you can easily drive traffic to all your accounts, businesses, services and products.",
+      "Sign up and create your resume for free.",
+      "When you are ready, you can download your resume in PDF format.",
     ],
   ],
 
