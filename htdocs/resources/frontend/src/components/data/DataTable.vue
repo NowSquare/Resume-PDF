@@ -195,6 +195,7 @@
 
       <v-dialog
         persistent
+        :retain-focus="false"
         :width="settings.dialog_width || 480"
         :fullscreen="$vuetify.breakpoint.xsOnly"
         v-model="dataForm"
