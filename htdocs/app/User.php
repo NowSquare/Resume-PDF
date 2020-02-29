@@ -525,7 +525,7 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, H
         ->get()
         ->pluck('count');
 
-      $userSignupsTotalPrevious = (int) $data[0];
+      $userSignupsTotalPrevious = (isset($data[0])) ? (int) $data[0] : 0;
 
       $stats = [
         'version' => config('version.current'),
