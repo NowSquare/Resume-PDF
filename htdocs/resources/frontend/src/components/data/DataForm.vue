@@ -518,7 +518,7 @@
         })
         .catch(err => {
           if (typeof err.response !== 'undefined') {
-            if (typeof err.response.status !== 'undefined' && typeof err.response.data.msg !== 'undefined') {
+            if (typeof err.response.status !== 'undefined' && typeof err.response.data.msg !== 'undefined' && err.response.data.msg !== '') {
               if (err.response.status == 422) {
                 this.$root.$snackbar(err.response.data.msg)
                 return
