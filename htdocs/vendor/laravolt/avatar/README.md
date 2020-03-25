@@ -89,7 +89,7 @@ You may specify custom font-family for your SVG text.
     <link href="https://fonts.googleapis.com/css?family=Laravolt" rel="stylesheet">
 
     <!--OR-->
-    
+
     <!--Setup your own style-->
     <style>
     @font-face {
@@ -205,6 +205,9 @@ return [
         // 'background' (same as background color)
         // or any valid hex ('#aabbcc')
         'color' => 'background',
+
+        // border radius, only works for SVG
+        'radius' => 0,
     ],
 
     // List of theme name to be used when rendering avatar
@@ -262,6 +265,7 @@ Avatar::create('Soekarno')->setForeground('#999999');
 Avatar::create('Soekarno')->setFontSize(72);
 Avatar::create('Soekarno')->setFont('/path/to/font.ttf');
 Avatar::create('Soekarno')->setBorder(1, '#aabbcc'); // size = 1, color = #aabbcc
+Avatar::create('Soekarno')->setBorder(1, '#aabbcc', 10); // size = 1, color = #aabbcc, border radius = 10 (only for SVG)
 Avatar::create('Soekarno')->setShape('square');
 
 // Available since 3.0.0

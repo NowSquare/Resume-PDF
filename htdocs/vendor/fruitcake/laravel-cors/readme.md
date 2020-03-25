@@ -1,6 +1,5 @@
 # CORS Middleware for Laravel
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Total Downloads][ico-downloads]][link-downloads]
@@ -12,8 +11,15 @@ Based on https://github.com/asm89/stack-cors
 The `laravel-cors` package allows you to send [Cross-Origin Resource Sharing](http://enable-cors.org/)
 headers with Laravel middleware configuration.
 
-If you want to have have a global overview of CORS workflow, you can  browse
+If you want to have a global overview of CORS workflow, you can  browse
 this [image](http://www.html5rocks.com/static/images/cors_server_flowchart.png).
+
+## Upgrading from 0.x
+When upgrading from 0.x versions, there are some breaking changes:
+ - The vendor name has changed (see installation/usage)
+ - Group middleware is no longer supported.
+ - A new 'paths' property is used to enable/disable CORS on certain routes. This is empty by default!
+ - The casing on the props in `cors.php` has changed from camelCase to snake_case, so if you already have a `cors.php` file you will need to update the props in there to match the new casing.
 
 ## Features
 
@@ -116,7 +122,7 @@ return [
 On Laravel Lumen, just register the ServiceProvider manually:
 
 ```php
-$app->register(\Fruitcake\Cors\ServiceProvider::class);
+$app->register(\Fruitcake\Cors\CorsServiceProvider::class);
 ```
 
 ## Global usage for Lumen

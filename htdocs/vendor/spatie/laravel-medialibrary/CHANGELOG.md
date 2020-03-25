@@ -2,6 +2,27 @@
 
 All notable changes to `laravel-medialibrary` will be documented in this file
 
+## 7.19.3 - 2020-03-09
+
+- fix responsive images extension (#1752)
+- use native file copy (#1758)
+
+## 7.19.2 - 2020-03-04
+
+- revert changes in 7.19.1
+
+## 7.19.1 - 2020-03-04
+
+- Update S3 url generator to use media disk (#1755)
+
+## 7.19.0 - 2020-03-03
+
+- add support for Laravel 7
+
+## 7.18.3 - 2020-02-19
+
+- allow `image_driver` config to be set via .env #1738
+
 ## 7.18.2 - 2020-01-25
 
 - add support for Laravel 7
