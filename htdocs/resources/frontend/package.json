@@ -18,7 +18,7 @@
     "@mdi/font": "^4.9.95",
     "@websanova/vue-auth": "^2.21.15-beta",
     "aos": "^2.3.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "core-js": "^3.6.4",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
